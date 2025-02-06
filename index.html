@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Abdallah Ashraf - Steel Structure Engineer</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- AOS CSS for animations -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Google Fonts -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+    />
+
+    <!-- Custom Styles -->
+    <style>
+      body {
+        font-family: "Montserrat", sans-serif;
+        background: #f9f9f9;
+        color: #333;
+        scroll-behavior: smooth;
+      }
+      /* Navbar */
+      .navbar {
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(5px);
+      }
+      .navbar-brand,
+      .nav-link {
+        color: #f9f9f9 !important;
+        font-weight: 500;
+      }
+      .nav-link:hover {
+        color: #e67e22 !important;
+      }
+      /* Hero Section */
+      .hero {
+        position: relative;
+        background: url("https://source.unsplash.com/1920x1080/?construction")
+          no-repeat center center/cover;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        color: #fff;
+      }
+      .hero h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+      .hero p {
+        font-size: 1.25rem;
+      }
+      /* Section Titles */
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 40px;
+        position: relative;
+      }
+      .section-title::after {
+        content: "";
+        width: 80px;
+        height: 4px;
+        background: #e67e22;
+        margin: 0 auto;
+        display: block;
+        margin-top: 10px;
+        border-radius: 2px;
+      }
+      /* Cards */
+      .card {
+        border: none;
+        overflow: hidden;
+        border-radius: 15px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      }
+      .card-img-top {
+        height: 200px;
+        object-fit: cover;
+      }
+      /* Filter Buttons */
+      .filter-btns .btn {
+        border-radius: 50px;
+        margin: 0 5px 15px;
+        transition: background-color 0.3s ease;
+      }
+      .filter-btns .btn.active,
+      .filter-btns .btn:hover {
+        background-color: #e67e22;
+        color: #fff;
+      }
+      /* Skills Section */
+      .skill-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: none;
+        background: #fff;
+        border-radius: 15px;
+        padding: 20px;
+        text-align: center;
+      }
+      .skill-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      }
+      .skill-card img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+        margin-bottom: 15px;
+      }
+      /* Internships & Courses Cards */
+      .internship-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: none;
+        background: #fff;
+        border-radius: 15px;
+        overflow: hidden;
+      }
+      .internship-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+      }
+      .internship-card .card-body {
+        padding: 15px;
+      }
+      /* Education Timeline */
+      .timeline {
+        position: relative;
+        padding: 20px 0;
+        margin: 0 auto;
+      }
+      .timeline::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4px;
+        height: 100%;
+        background: #e67e22;
+      }
+      .timeline-item {
+        position: relative;
+        width: 50%;
+        padding: 20px 40px;
+        box-sizing: border-box;
+      }
+      .timeline-item:nth-child(odd) {
+        left: 0;
+        text-align: right;
+      }
+      .timeline-item:nth-child(even) {
+        left: 50%;
+        text-align: left;
+      }
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        top: 30px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #e67e22;
+        border: 4px solid #fff;
+        z-index: 1;
+      }
+      .timeline-item:nth-child(odd)::before {
+        right: -10px;
+      }
+      .timeline-item:nth-child(even)::before {
+        left: -10px;
+      }
+      .timeline-content {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      @media (max-width: 768px) {
+        .timeline-item {
+          width: 100%;
+          padding-left: 70px;
+          padding-right: 25px;
+          text-align: left !important;
+          left: 0 !important;
+        }
+        .timeline::before {
+          left: 20px;
+        }
+        .timeline-item::before {
+          left: 0 !important;
+        }
+      }
+      /* Contact Form */
+      .contact-form input,
+      .contact-form textarea {
+        border-radius: 0;
+        box-shadow: none;
+        border-color: #ddd;
+      }
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        border-color: #e67e22;
+      }
+      /* Footer */
+      footer {
+        background: #222;
+        color: #ccc;
+        padding: 30px 0;
+        text-align: center;
+      }
+      /* Section Padding */
+      section {
+        padding: 80px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Abdallah Ashraf</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+          aria-controls="navbarContent"
+          aria-expanded="false"
+        >
+          <span class="navbar-toggler-icon text-white"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About Me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#experience">Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#skills">Skills & Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#internships">Internships & Courses</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#education">Education</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div
+        class="hero-content container"
+        data-aos="fade-up"
+        data-aos-duration="1200"
+      >
+        <h1>Hello, I'm Abdallah Ashraf</h1>
+        <p>Steel Structure Engineer with 4 Years of Experience</p>
+      </div>
+    </section>
+
+    <!-- About Me -->
+    <section id="about">
+      <div class="container" data-aos="fade-up" data-aos-duration="1000">
+        <h2 class="section-title">About Me</h2>
+        <div class="row align-items-center">
+          <div class="col-md-4" data-aos="zoom-in" data-aos-duration="1000">
+            <img
+              src="https://source.unsplash.com/250x250/?portrait"
+              alt="Abdallah Ashraf"
+              class="img-fluid rounded-circle shadow"
+            />
+          </div>
+          <div class="col-md-8" data-aos="fade-left" data-aos-duration="1200">
+            <p>
+              I am Abdallah Ashraf Abdallah, a professional Steel Structure
+              Engineer with 4 years of hands-on experience in designing and
+              detailing steel structures. I have been involved in a variety of
+              projects including:
+            </p>
+            <ul>
+              <li>
+                Preparing shop drawings for various steel structures (buildings,
+                warehouses, sheds, malls, schools, gas stations, workshops).
+              </li>
+              <li>Conducting on-site inspections and detailed assessments.</li>
+            </ul>
+            <p>
+              <strong>Contact Details:</strong><br />
+              Phone: (+20) 1123089037, (+20) 1027562696<br />
+              Email:
+              <a href="mailto:abdallahashraf1198@gmail.com"
+                >abdallahashraf1198@gmail.com</a
+              ><br />
+              Location: Maddi, Cairo | Driving License Available | Single
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="bg-light">
+      <div class="container" data-aos="fade-up" data-aos-duration="1000">
+        <h2 class="section-title">Experience</h2>
+        <div class="row g-4">
+          <!-- Experience Card 1 -->
+          <div class="col-md-4" data-aos="fade-right" data-aos-duration="1000">
+            <div class="card p-3">
+              <div class="card-body">
+                <h5 class="card-title">Armed Forces Engineering Authority</h5>
+                <h6 class="card-subtitle mb-2 text-muted">
+                  Steel Detailing Engineer
+                </h6>
+                <p class="card-text">
+                  Weapon Warehouse (60 x 70 m, Total Weight 115 ton) – May 2022
+                  to October 2023.
+                </p>
+                <p class="small text-muted">
+                  Contacts: Gen. / Mohamed Ezzat (01009693630), Major / Mohamed
+                  Hamdy (01122726273)
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Experience Card 2 -->
+          <div class="col-md-4" data-aos="fade-up" data-aos-duration="1000">
+            <div class="card p-3">
+              <div class="card-body">
+                <h5 class="card-title">ElZain Office</h5>
+                <h6 class="card-subtitle mb-2 text-muted">
+                  Structure Design & Detailing
+                </h6>
+                <p class="card-text">
+                  Involved in designing and detailing various steel structures –
+                  November 2023 to August 2024.
+                </p>
+                <p class="small text-muted">
+                  Contacts: Eng. Mohamed Zain (01157333381), Eng. Ahmed Zain
+                  (01123298555)
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Experience Card 3 -->
+          <div class="col-md-4" data-aos="fade-left" data-aos-duration="1000">
+            <div class="card p-3">
+              <div class="card-body">
+                <h5 class="card-title">Petrojet</h5>
+                <h6 class="card-subtitle mb-2 text-muted">
+                  Steel Structure Detailer
+                </h6>
+                <p class="card-text">
+                  Worked on detailing steel structures for several projects –
+                  August 2024 to January 2025.
+                </p>
+                <p class="small text-muted">
+                  Contact: Eng. Mohamed Samir (01090650006)
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="container" data-aos="fade-up" data-aos-duration="1000">
+        <h2 class="section-title">Projects</h2>
+        <!-- Filter Buttons -->
+        <div class="filter-btns text-center mb-4">
+          <button class="btn btn-outline-primary active" data-filter="all">
+            All
+          </button>
+          <button class="btn btn-outline-primary" data-filter="detailing">
+            Detailing
+          </button>
+          <button class="btn btn-outline-primary" data-filter="warehouse">
+            Warehouses
+          </button>
+          <button class="btn btn-outline-primary" data-filter="tower">
+            Towers
+          </button>
+        </div>
+        <div class="row" id="projectContainer">
+          <!-- Project Card 1 -->
+          <div
+            class="col-md-4 mb-4 project-item"
+            data-category="detailing"
+            data-aos="flip-left"
+            data-aos-duration="1000"
+          >
+            <div
+              class="card"
+              data-bs-toggle="modal"
+              data-bs-target="#projectModal1"
+            >
+              <img
+                src="https://source.unsplash.com/600x400/?construction,project"
+                class="card-img-top"
+                alt="Small Surface Detailing"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Small Surface Detailing</h5>
+                <p class="card-text">
+                  Detailing work for small surface projects.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Project Card 2 -->
+          <div
+            class="col-md-4 mb-4 project-item"
+            data-category="detailing"
+            data-aos="flip-up"
+            data-aos-duration="1000"
+          >
+            <div
+              class="card"
+              data-bs-toggle="modal"
+              data-bs-target="#projectModal2"
+            >
+              <img
+                src="https://source.unsplash.com/600x400/?cement,plant"
+                class="card-img-top"
+                alt="Cement Factory Detailing"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Cement Factory Detailing</h5>
+                <p class="card-text">
+                  Detailing work for a cement factory project.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Project Card 3 -->
+          <div
+            class="col-md-4 mb-4 project-item"
+            data-category="warehouse"
+            data-aos="flip-right"
+            data-aos-duration="1000"
+          >
+            <div
+              class="card"
+              data-bs-toggle="modal"
+              data-bs-target="#projectModal3"
+            >
+              <img
+                src="https://source.unsplash.com/600x400/?warehouse"
+                class="card-img-top"
+                alt="El Hassan Factory Warehouse"
+              />
+              <div class="card-body">
+                <h5 class="card-title">El Hassan Factory Warehouse</h5>
+                <p class="card-text">
+                  Design & detailing for a warehouse area (90 x 40 m).
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Project Card 4 -->
+          <div
+            class="col-md-4 mb-4 project-item"
+            data-category="warehouse"
+            data-aos="flip-left"
+            data-aos-duration="1000"
+          >
+            <div
+              class="card"
+              data-bs-toggle="modal"
+              data-bs-target="#projectModal4"
+            >
+              <img
+                src="https://source.unsplash.com/600x400/?warehouse,building"
+                class="card-img-top"
+                alt="10 Ramadan City Warehouse"
+              />
+              <div class="card-body">
+                <h5 class="card-title">10 Ramadan City Warehouse</h5>
+                <p class="card-text">
+                  Detailing & fabrication for a warehouse (82 x 60 m).
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Project Card 5 -->
+          <div
+            class="col-md-4 mb-4 project-item"
+            data-category="warehouse"
+            data-aos="flip-up"
+            data-aos-duration="1000"
+          >
+            <div
+              class="card"
+              data-bs-toggle="modal"
+              data-bs-target="#projectModal5"
+            >
+              <img
+                src="https://source.unsplash.com/600x400/?industrial"
+                class="card-img-top"
+                alt="Mostaqbal Maser El Dabaa"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Mostaqbal Maser El Dabaa</h5>
+                <p class="card-text">
+                  Detailing for 3 warehouses (66 x 70 m) & 3 sheds (50 x 60 m).
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Project Card 6 -->
+          <div
+            class="col-md-4 mb-4 project-item"
+            data-category="tower"
+            data-aos="flip-right"
+            data-aos-duration="1000"
+          >
+            <div
+              class="card"
+              data-bs-toggle="modal"
+              data-bs-target="#projectModal6"
+            >
+              <img
+                src="https://source.unsplash.com/600x400/?tower,construction"
+                class="card-img-top"
+                alt="Medium Voltage Tower"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Medium Voltage Tower</h5>
+                <p class="card-text">Detailing work for a 12 m high tower.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Project Card 7 -->
+          <div
+            class="col-md-4 mb-4 project-item"
+            data-category="tower"
+            data-aos="flip-left"
+            data-aos-duration="1000"
+          >
+            <div
+              class="card"
+              data-bs-toggle="modal"
+              data-bs-target="#projectModal7"
+            >
+              <img
+                src="https://source.unsplash.com/600x400/?telecommunication,tower"
+                class="card-img-top"
+                alt="Telecommunication Tower"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Telecommunication Tower</h5>
+                <p class="card-text">Detailing work for a 48 m high tower.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Modals -->
+    <!-- Project Modal 1 -->
+    <div
+      class="modal fade"
+      id="projectModal1"
+      tabindex="-1"
+      aria-labelledby="projectModalLabel1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="projectModalLabel1">
+              Small Surface Detailing
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              src="https://source.unsplash.com/1200x600/?construction,detail"
+              alt="Small Surface Detailing"
+              class="img-fluid mb-3"
+            />
+            <p>
+              <strong>Description:</strong> Detailing work for small surface
+              projects.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- (Add similar modals for Project 2 to 7 with appropriate IDs and content) -->
+
+    <!-- Skills & Courses -->
+    <section id="skills" class="bg-light">
+      <div class="container" data-aos="fade-up" data-aos-duration="1000">
+        <h2 class="section-title">Skills & Courses</h2>
+        <div class="row g-4">
+          <!-- Skill Card 1 -->
+          <div
+            class="col-md-3 col-sm-6"
+            data-aos="zoom-in"
+            data-aos-duration="800"
+          >
+            <div class="skill-card">
+              <img
+                src="https://source.unsplash.com/80x80/?autocad"
+                alt="AutoCAD"
+              />
+              <h5>AutoCAD</h5>
+            </div>
+          </div>
+          <!-- Skill Card 2 -->
+          <div
+            class="col-md-3 col-sm-6"
+            data-aos="zoom-in"
+            data-aos-duration="800"
+          >
+            <div class="skill-card">
+              <img src="https://source.unsplash.com/80x80/?tekla" alt="TEKLA" />
+              <h5>TEKLA</h5>
+            </div>
+          </div>
+          <!-- Skill Card 3 -->
+          <div
+            class="col-md-3 col-sm-6"
+            data-aos="zoom-in"
+            data-aos-duration="800"
+          >
+            <div class="skill-card">
+              <img
+                src="https://source.unsplash.com/80x80/?sap"
+                alt="SAP-2000"
+              />
+              <h5>SAP-2000</h5>
+            </div>
+          </div>
+          <!-- Skill Card 4 -->
+          <div
+            class="col-md-3 col-sm-6"
+            data-aos="zoom-in"
+            data-aos-duration="800"
+          >
+            <div class="skill-card">
+              <img
+                src="https://source.unsplash.com/80x80/?engineering"
+                alt="MUNGO"
+              />
+              <h5>MUNGO</h5>
+            </div>
+          </div>
+          <!-- Skill Card 5 -->
+          <div
+            class="col-md-3 col-sm-6"
+            data-aos="zoom-in"
+            data-aos-duration="800"
+          >
+            <div class="skill-card">
+              <img
+                src="https://source.unsplash.com/80x80/?office"
+                alt="Office Suite"
+              />
+              <h5>MS Office</h5>
+            </div>
+          </div>
+          <!-- Skill Card 6 -->
+          <div
+            class="col-md-3 col-sm-6"
+            data-aos="zoom-in"
+            data-aos-duration="800"
+          >
+            <div class="skill-card">
+              <img
+                src="https://source.unsplash.com/80x80/?hilti"
+                alt="HILTI Anchor"
+              />
+              <h5>HILTI Anchor</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Internships & Courses Section -->
+    <section id="internships" class="bg-white">
+      <div class="container" data-aos="fade-up" data-aos-duration="1000">
+        <h2 class="section-title">Internships & Courses</h2>
+        <div class="row g-4">
+          <!-- Internship Card 1 -->
+          <div class="col-md-6" data-aos="fade-right" data-aos-duration="800">
+            <div class="card internship-card shadow-sm">
+              <img
+                src="https://source.unsplash.com/600x400/?bridge"
+                class="card-img-top"
+                alt="ARAB CONTRACTORS – Al Zomor Bridge"
+              />
+              <div class="card-body">
+                <h5 class="card-title">ARAB CONTRACTORS – Al Zomor Bridge</h5>
+                <p class="card-text">Internship: Jul 2021 – Aug 2021</p>
+              </div>
+            </div>
+          </div>
+          <!-- Internship Card 2 -->
+          <div class="col-md-6" data-aos="fade-left" data-aos-duration="800">
+            <div class="card internship-card shadow-sm">
+              <img
+                src="https://source.unsplash.com/600x400/?bridge,maadi"
+                class="card-img-top"
+                alt="SAMCO – New Maadi Bridge"
+              />
+              <div class="card-body">
+                <h5 class="card-title">SAMCO – New Maadi Bridge</h5>
+                <p class="card-text">Internship: Sep 2020 – Oct 2020</p>
+              </div>
+            </div>
+          </div>
+          <!-- Internship Card 3 -->
+          <div class="col-md-6" data-aos="fade-right" data-aos-duration="800">
+            <div class="card internship-card shadow-sm">
+              <img
+                src="https://source.unsplash.com/600x400/?construction,maadi"
+                class="card-img-top"
+                alt="AL ABD CONSTRUCTION – Maadi View"
+              />
+              <div class="card-body">
+                <h5 class="card-title">AL ABD CONSTRUCTION – Maadi View</h5>
+                <p class="card-text">Internship: Aug 2020 – Sep 2020</p>
+              </div>
+            </div>
+          </div>
+          <!-- Internship Card 4 -->
+          <div class="col-md-6" data-aos="fade-left" data-aos-duration="800">
+            <div class="card internship-card shadow-sm">
+              <img
+                src="https://source.unsplash.com/600x400/?engineering,course"
+                class="card-img-top"
+                alt="Technical Office Diploma"
+              />
+              <div class="card-body">
+                <h5 class="card-title">
+                  Technical Office Diploma – Eng. Mohamed Salama
+                </h5>
+                <p class="card-text">Course: 2023</p>
+              </div>
+            </div>
+          </div>
+          <!-- Internship Card 5 -->
+          <div class="col-md-6" data-aos="fade-right" data-aos-duration="800">
+            <div class="card internship-card shadow-sm">
+              <img
+                src="https://source.unsplash.com/600x400/?code"
+                class="card-img-top"
+                alt="Execution & Requirements for Egyptian Code"
+              />
+              <div class="card-body">
+                <h5 class="card-title">
+                  Execution & Requirements for Egyptian Code – Eng. Eslam Taha
+                </h5>
+                <p class="card-text">Course: 2022</p>
+              </div>
+            </div>
+          </div>
+          <!-- Internship Card 6 -->
+          <div class="col-md-6" data-aos="fade-left" data-aos-duration="800">
+            <div class="card internship-card shadow-sm">
+              <img
+                src="https://source.unsplash.com/600x400/?diploma"
+                class="card-img-top"
+                alt="Structural Design Diploma"
+              />
+              <div class="card-body">
+                <h5 class="card-title">
+                  Structural Design Diploma, AZ Academy
+                </h5>
+                <p class="card-text">Course details as per curriculum</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Timeline Section -->
+    <section id="education" class="bg-white">
+      <div class="container" data-aos="fade-up" data-aos-duration="1000">
+        <h2 class="section-title">Education</h2>
+        <div class="timeline">
+          <!-- Timeline Item -->
+          <div class="timeline-item">
+            <div class="timeline-content p-4">
+              <h4 class="mb-2">Bachelor of Engineering in Civil Engineering</h4>
+              <p class="mb-1">
+                <strong>Institution:</strong> 15 May Higher Institute (2016 -
+                2021)
+              </p>
+              <p class="mb-1">
+                <strong>Graduated:</strong> May 2021 with
+                <em>Very Good With Honor</em>
+              </p>
+              <p>
+                <strong>Graduation Project:</strong> Steel Structure Project –
+                <em>Excellent</em>
+              </p>
+            </div>
+          </div>
+          <!-- يمكنك إضافة المزيد من عناصر التعليم بنفس الطريقة إذا كان لديك شهادات إضافية -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container" data-aos="fade-up" data-aos-duration="1000">
+        <h2 class="section-title">Contact</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <form id="contactForm" class="contact-form">
+              <div class="mb-3" data-aos="fade-right" data-aos-duration="1000">
+                <label for="name" class="form-label">Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
+              <div class="mb-3" data-aos="fade-left" data-aos-duration="1000">
+                <label for="email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+              <div class="mb-3" data-aos="fade-right" data-aos-duration="1000">
+                <label for="message" class="form-label">Message</label>
+                <textarea
+                  class="form-control"
+                  id="message"
+                  rows="5"
+                  placeholder="Enter your message"
+                  required
+                ></textarea>
+              </div>
+              <div data-aos="zoom-in" data-aos-duration="1000">
+                <button type="submit" class="btn btn-primary w-100">
+                  Send
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Abdallah Ashraf. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- EmailJS SDK (optional - configure if needed) -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script>
+      // Initialize AOS
+      AOS.init({
+        once: true,
+        easing: "ease-in-out",
+        duration: 1000,
+      });
+
+      // Projects Filtering
+      const filterButtons = document.querySelectorAll(".filter-btns .btn");
+      const projectItems = document.querySelectorAll(".project-item");
+
+      filterButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterButtons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          const filter = btn.getAttribute("data-filter");
+          projectItems.forEach((item) => {
+            if (
+              filter === "all" ||
+              item.getAttribute("data-category") === filter
+            ) {
+              item.style.display = "block";
+              item.setAttribute("data-aos", "fade-up");
+            } else {
+              item.style.display = "none";
+            }
+          });
+        });
+      });
+
+      // EmailJS configuration (optional - replace keys with your credentials)
+      (function () {
+        emailjs.init("YOUR_USER_ID");
+      })();
+
+      // Contact Form Submission via EmailJS (optional)
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const templateParams = {
+            from_name: document.getElementById("name").value,
+            from_email: document.getElementById("email").value,
+            message: document.getElementById("message").value,
+          };
+
+          emailjs
+            .send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
+            .then(
+              function (response) {
+                alert("Your message has been sent successfully!");
+                document.getElementById("contactForm").reset();
+              },
+              function (error) {
+                alert(
+                  "An error occurred while sending the message. Please try again later."
+                );
+              }
+            );
+        });
+    </script>
+  </body>
+</html>
